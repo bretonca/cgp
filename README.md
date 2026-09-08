@@ -1,93 +1,93 @@
-# MI 231 Starter 2026 Fall
+# **Replace this Project Name** - ReadMe File
+
+#### Author: *Replace this with your name*
+
+##### Modified: *2026-09-01*
 
 
+<br>
 
-## Getting started
+**0. What is the link to your project on itch.io? (must be a playable WebGL build when you submit)**   
 
-To make it easy for you to get started with GitLab, here's a list of recommended next steps.
+> &nbsp;
+><i>(Just paste the link here.)</i>   
+> &nbsp;
+ 
 
-Already a pro? Just edit this README.md and make it your own. Want to make it easy? [Use the template at the bottom](#editing-this-readme)!
 
-## Add your files
+**1. What are the controls to your game? How do we play?**   
 
-* [Create](https://docs.gitlab.com/user/project/repository/web_editor/#create-a-file) or [upload](https://docs.gitlab.com/user/project/repository/web_editor/#upload-a-file) files
-* [Add files using the command line](https://docs.gitlab.com/topics/git/add_files/#add-files-to-a-git-repository) or push an existing Git repository with the following command:
+> &nbsp;
+><i>(for projects, list all controls. for tutorials, just list any added controls for enhancements)</i>   
+> &nbsp;
+ 
 
-```
-cd existing_repo
-git remote add origin https://www.gitlab.msu.edu/guenth72/mi-231-starter-2026-fall.git
-git branch -M main
-git push -uf origin main
-```
 
-## Integrate with your tools
+**2. For tutorials, what creative additions/enhancements did you make? How can we find them?
+For projects, what special features should we note and how can we use them?**   
 
-* [Set up project integrations](https://www.gitlab.msu.edu/guenth72/mi-231-starter-2026-fall/-/settings/integrations)
+> &nbsp;
+><i>(If you don't tell us how to experience them, we could easily miss them.)</i>   
+> &nbsp;
+ 
 
-## Collaborate with your team
 
-* [Invite team members and collaborators](https://docs.gitlab.com/user/project/members/)
-* [Create a new merge request](https://docs.gitlab.com/user/project/merge_requests/creating_merge_requests/)
-* [Automatically close issues from merge requests](https://docs.gitlab.com/user/project/issues/managing_issues/#closing-issues-automatically)
-* [Enable merge request approvals](https://docs.gitlab.com/user/project/merge_requests/approvals/)
-* [Set auto-merge](https://docs.gitlab.com/user/project/merge_requests/auto_merge/)
+**3. Are there any assets used that you didn't create yourself?**   
 
-## Test and Deploy
+> &nbsp;
+><i>(art, music, etc. Just tell us where you got it, link it here)</i>   
+> &nbsp;
+ 
 
-Use the built-in continuous integration in GitLab.
 
-* [Get started with GitLab CI/CD](https://docs.gitlab.com/ci/quick_start/)
-* [Analyze your code for known vulnerabilities with Static Application Security Testing (SAST)](https://docs.gitlab.com/user/application_security/sast/)
-* [Deploy to Kubernetes, Amazon EC2, or Amazon ECS using Auto Deploy](https://docs.gitlab.com/topics/autodevops/requirements/)
-* [Use pull-based deployments for improved Kubernetes management](https://docs.gitlab.com/user/clusters/agent/)
-* [Set up protected environments](https://docs.gitlab.com/ci/environments/protected_environments/)
+**4. Did you receive help from anyone outside this class or from anyone in this class that is not in a group with you?**   
 
-***
+> &nbsp;
+><i>(list their names and what they helped with)</i>   
+> &nbsp;
+ 
 
-# Editing this README
 
-When you're ready to make this README your own, just edit this file and use the handy template below (or feel free to structure it however you want - this is just a starting point!). Thanks to [makeareadme.com](https://www.makeareadme.com/) for this template.
+**5. Did you get help from any AI Code Assistants?**   
 
-## Suggestions for a good README
+> &nbsp;
+><i>(Including things like Chat-GPT, Copilot, etc. Tell us which .cs file to look in for the citation, share your prompt, and describe what you learned)</i>   
+> &nbsp;
+ 
 
-Every project is different, so consider which of these sections apply to yours. The sections used in the template are suggestions for most open source projects. Also keep in mind that while a README can be too long and detailed, too long is better than too short. If you think your README is too long, consider utilizing another form of documentation rather than cutting out information.
 
-## Name
-Choose a self-explaining name for your project.
+**6. Did you get help from any online websites, videos, or tutorials?**   
 
-## Description
-Let people know what your project can do specifically. Provide context and add a link to any reference visitors might be unfamiliar with. A list of Features or a Background subsection can also be added here. If there are alternatives to your project, this is a good place to list differentiating factors.
+> &nbsp;
+><i>(link them here)</i>   
+> &nbsp;
+ 
 
-## Badges
-On some READMEs, you may see small images that convey metadata, such as whether or not all the tests are passing for the project. You can use Shields to add some to your README. Many services also have instructions for adding a badge.
 
-## Visuals
-Depending on what you are making, it can be a good idea to include screenshots or even a video (you'll frequently see GIFs rather than actual videos). Tools like ttygif can help, but check out Asciinema for a more sophisticated method.
+**7. What trouble did you have with this project?**   
 
-## Installation
-Within a particular ecosystem, there may be a common way of installing things, such as using Yarn, NuGet, or Homebrew. However, consider the possibility that whoever is reading your README is a novice and would like more guidance. Listing specific steps helps remove ambiguity and gets people to using your project as quickly as possible. If it only runs in a specific context like a particular programming language version or operating system or has dependencies that have to be installed manually, also add a Requirements subsection.
+> &nbsp;
+><i>(Even if you didn't complete the project, you can still get partial credit if you tell us about why it's incomplete.)</i>   
+> &nbsp;
+ 
 
-## Usage
-Use examples liberally, and show the expected output if you can. It's helpful to have inline the smallest example of usage that you can demonstrate, while providing links to more sophisticated examples if they are too long to reasonably include in the README.
 
-## Support
-Tell people where they can go to for help. It can be any combination of an issue tracker, a chat room, an email address, etc.
+**8. Is there anything else we should know?**   
 
-## Roadmap
-If you have ideas for releases in the future, it is a good idea to list them in the README.
+> &nbsp;
+>*No answer given.*
+> &nbsp;
+ 
 
-## Contributing
-State if you are open to contributions and what your requirements are for accepting them.
 
-For people who want to make changes to your project, it's helpful to have some documentation on how to get started. Perhaps there is a script that they should run or some environment variables that they need to set. Make these steps explicit. These instructions could also be useful to your future self.
+---
 
-You can also document commands to lint the code or run tests. These steps help to ensure high code quality and reduce the likelihood that the changes inadvertently break something. Having instructions for running tests is especially helpful if it requires external setup, such as starting a Selenium server for testing in a browser.
+# Connecting GitHub Desktop to GitLab.MSU.edu Projects
+See my **Student guide to using GitLab**: https://docs.google.com/document/d/1yWBssNf4n_qX2fZw67LMEvEBdgl_NEZS_ZzHjSGl-nc/edit?usp=sharing
 
-## Authors and acknowledgment
-Show your appreciation to those who have contributed to the project.
+<br><br><br><br><br>
 
-## License
-For open source projects, say how it is licensed.
+---
 
-## Project status
-If you have run out of energy or time for your project, put a note at the top of the README saying that development has slowed down or stopped completely. Someone may choose to fork your project or volunteer to step in as a maintainer or owner, allowing your project to keep going. You can also make an explicit request for maintainers.
+# This starter is based on Jeremy Gibson Bond's MI 231 Starter, https://github.com/MSU-mi231/Unity-3D-Template-2022.3
+(which in turn incorporates some collaborative work and suggestions from me)
