@@ -1,8 +1,8 @@
-# **Replace this Project Name** - ReadMe File
+# **CGP: Solomon's Key** - ReadMe File
 
-#### Author: *Replace this with your name*
+#### Author: Timothy Purnell, Caleb Breton
 
-##### Modified: *2026-09-01*
+##### Modified: *2026-10-19*
 
 
 <br>
