@@ -35,7 +35,8 @@ For projects, what special features should we note and how can we use them?**
 **3. Are there any assets used that you didn't create yourself?**   
 
 > &nbsp;
-><i>(art, music, etc. Just tell us where you got it, link it here)</i>   
+><i>(Tileset png - (https://www.spriters-resource.com/nes/solomonskey/asset/547156/)
+Dana png https://www.spriters-resource.com/nes/solomonskey/asset/89581/ )</i>   
 > &nbsp;
  
 
