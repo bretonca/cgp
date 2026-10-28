@@ -3202,8 +3202,8 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 256
---- !u!61 &2077456600
-BoxCollider2D:
+--- !u!70 &2077456600
+CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -3234,19 +3234,9 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.0019778204, y: 0.000037896447}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.014, y: 0.016}
-    newSize: {x: 0.14, y: 0.16}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.010425472, y: 0.01651202}
-  m_EdgeRadius: 0
+  m_Offset: {x: -0.0019222823, y: 0}
+  m_Size: {x: 0.010155409, y: 0.016}
+  m_Direction: 0
 --- !u!1 &2113406483
 GameObject:
   m_ObjectHideFlags: 0
