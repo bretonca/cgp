@@ -118,7 +118,7 @@ TextureImporter:
         width: 14
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -139,7 +139,7 @@ TextureImporter:
         width: 19
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -160,7 +160,7 @@ TextureImporter:
         width: 17
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -181,7 +181,7 @@ TextureImporter:
         width: 17
         height: 17
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -189,6 +189,132 @@ TextureImporter:
       bones: []
       spriteID: b07c982a30d1f24478d3a6523f52e267
       internalID: -1086843348
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NES - Solomon's Key - Miscellaneous - Dana_4
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 2
+        width: 14
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 71915336e63b1d24f9bb6be0fbab53f7
+      internalID: 974892790
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NES - Solomon's Key - Miscellaneous - Dana_5
+      rect:
+        serializedVersion: 2
+        x: 27
+        y: 2
+        width: 16
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d78cbe051bf85fc4a9ce3443d14bfe51
+      internalID: 1605900657
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NES - Solomon's Key - Miscellaneous - Dana_6
+      rect:
+        serializedVersion: 2
+        x: 46
+        y: 2
+        width: 15
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a9a97bf23085073429a9ca942926694f
+      internalID: -1714515448
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NES - Solomon's Key - Miscellaneous - Dana_7
+      rect:
+        serializedVersion: 2
+        x: 82
+        y: 19
+        width: 14
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 12a0df81e86a4c3478b708daf232e85c
+      internalID: -1307514769
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NES - Solomon's Key - Miscellaneous - Dana_8
+      rect:
+        serializedVersion: 2
+        x: 102
+        y: 2
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7a25a94a8f3c3e3408c974c9fb82f1fe
+      internalID: 687641540
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NES - Solomon's Key - Miscellaneous - Dana_9
+      rect:
+        serializedVersion: 2
+        x: 102
+        y: 21
+        width: 10
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 33c1628ec964bdc44bee1d091d8a2625
+      internalID: 268437934
       vertices: []
       indices: 
       edges: []
@@ -211,6 +337,9 @@ TextureImporter:
       NES - Solomon's Key - Miscellaneous - Dana_4: 974892790
       NES - Solomon's Key - Miscellaneous - Dana_5: 1605900657
       NES - Solomon's Key - Miscellaneous - Dana_6: -1714515448
+      NES - Solomon's Key - Miscellaneous - Dana_7: -1307514769
+      NES - Solomon's Key - Miscellaneous - Dana_8: 687641540
+      NES - Solomon's Key - Miscellaneous - Dana_9: 268437934
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

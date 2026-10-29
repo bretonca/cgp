@@ -13,6 +13,12 @@ public class Dana : MonoBehaviour
     public Vector2 checkSize = new Vector2(0.5f, 0.1f); // Dimensions of the detection box
     public LayerMask groundLayer;      // Set this to your 'Ground' layer
 
+    [Header("Solomon's Wand Magic")]
+    public GameObject blockPrefab;      // Drop your MagicBlock prefab here!
+    public Transform wandTargetRight;   // Empty object for target on the right
+    public Transform wandTargetLeft;    // Empty object for target on the left
+    public float checkBlockRadius = 0.4f;
+
     private Rigidbody2D rb;
     private Animator anim;
 
@@ -44,6 +50,11 @@ public class Dana : MonoBehaviour
             jumpRequested = true;
         }
 
+        if (Input.GetButtonDown("Fire1") || Input.GetKeyDown(KeyCode.E))
+        {
+            CastWandMagic();
+        }
+
         FlipSprite();
     }
 
@@ -69,6 +80,38 @@ public class Dana : MonoBehaviour
         return hit != null;
     }
 
+    void CastWandMagic()
+    {
+        Transform activeTarget = isFacingRight ? wandTargetRight : wandTargetLeft;
+        if (activeTarget == null) return;
+
+        Collider2D existingBlock = Physics2D.OverlapCircle(activeTarget.position, checkBlockRadius, groundLayer);
+
+        if (existingBlock != null)
+        {
+            MagicBlock magicBlockComponent = existingBlock.GetComponent<MagicBlock>();
+
+            if (magicBlockComponent != null)
+            {
+                magicBlockComponent.TriggerBreak();
+            }
+            else
+            {
+                Destroy(existingBlock.gameObject);
+            }
+
+            // Commented out to stop parameters error:
+            // if (anim != null) anim.SetTrigger("UseWand");
+        }
+        else
+        {
+            Instantiate(blockPrefab, activeTarget.position, Quaternion.identity);
+
+            // Commented out to stop parameters error:
+            // if (anim != null) anim.SetTrigger("UseWand");
+        }
+    } // <-- THIS WAS MISSING! This closes the CastWandMagic function properly.
+
     void FlipSprite()
     {
         if (isFacingRight && horizontalInput > 0f || !isFacingRight && horizontalInput < 0f)
@@ -80,7 +123,7 @@ public class Dana : MonoBehaviour
         }
     }
 
-    // Draws a blue wireframe box in your Scene View editor so you can easily verify its position!
+    // Draws wireframe helpers in your Scene View editor so you can easily verify positions!
     private void OnDrawGizmosSelected()
     {
         if (groundCheck != null)
@@ -88,6 +131,17 @@ public class Dana : MonoBehaviour
             Gizmos.color = Color.cyan;
             Gizmos.DrawWireCube(groundCheck.position, checkSize);
         }
+
+        if (wandTargetRight != null)
+        {
+            Gizmos.color = Color.green;
+            Gizmos.DrawWireSphere(wandTargetRight.position, checkBlockRadius);
+        }
+
+        if (wandTargetLeft != null)
+        {
+            Gizmos.color = Color.red;
+            Gizmos.DrawWireSphere(wandTargetLeft.position, checkBlockRadius);
+        }
     }
 }
-
