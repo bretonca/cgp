@@ -31,6 +31,16 @@ public class Dana : MonoBehaviour
     private bool jumpRequested = false;
     private int facingDirectionInt = 1;
 
+    public enum BlockPlacementMode
+    {
+        Right,
+        Left,
+        DiagonalDown
+    }
+
+    [Header("Block Placement")]
+    public BlockPlacementMode placementMode = BlockPlacementMode.DiagonalDown;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -92,22 +102,24 @@ public class Dana : MonoBehaviour
 
     private Vector3 GetGridTargetPosition()
     {
-        if (levelGrid != null)
+        Vector3Int currentCell = levelGrid.WorldToCell(transform.position);
+
+        int xOffset = facingDirectionInt;
+        int yOffset = 0;
+
+        // Hold Down + E for diagonal placement
+        if (Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.S))
         {
-            Vector3Int currentCell = levelGrid.WorldToCell(transform.position);
-            Vector3Int targetCell = new Vector3Int(
-                currentCell.x + facingDirectionInt,
-                currentCell.y + verticalGridOffset,
-                0
-            );
-            return levelGrid.GetCellCenterWorld(targetCell);
+            yOffset = -1;
         }
-        else
-        {
-            int targetX = Mathf.RoundToInt(transform.position.x) + facingDirectionInt;
-            int targetY = Mathf.RoundToInt(transform.position.y) + verticalGridOffset;
-            return new Vector3(targetX, targetY, 0f);
-        }
+
+        Vector3Int targetCell = new Vector3Int(
+            currentCell.x + xOffset,
+            currentCell.y + yOffset,
+            0
+        );
+
+        return levelGrid.GetCellCenterWorld(targetCell);
     }
 
     void CastWandMagic()

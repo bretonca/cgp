@@ -3208,6 +3208,7 @@ MonoBehaviour:
     m_Bits: 64
   levelGrid: {fileID: 930733674}
   verticalGridOffset: 0
+  placementMode: 0
 --- !u!70 &2077456600
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
