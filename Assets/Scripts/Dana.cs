@@ -9,15 +9,19 @@ public class Dana : MonoBehaviour
     public float jumpForce = 11f;
 
     [Header("Ground Detection")]
-    public Transform groundCheck;      // Drop your GroundCheck empty object here!
-    public Vector2 checkSize = new Vector2(0.5f, 0.1f); // Dimensions of the detection box
-    public LayerMask groundLayer;      // Set this to your 'Ground' layer
+    public Transform groundCheck;
+    public Vector2 checkSize = new Vector2(0.5f, 0.2f); // Slightly taller Y to ensure it feels spawned blocks
+    public LayerMask groundLayer;      // MUST hold BOTH 'Ground' and 'MagicBlock' checked
 
     [Header("Solomon's Wand Magic")]
-    public GameObject blockPrefab;      // Drop your MagicBlock prefab here!
-    public Transform wandTargetRight;   // Empty object for target on the right
-    public Transform wandTargetLeft;    // Empty object for target on the left
-    public float checkBlockRadius = 0.4f;
+    public GameObject blockPrefab;
+    public LayerMask magicBlockLayer;   // MUST hold ONLY 'MagicBlock' checked
+
+    [Tooltip("Drag your scene's Grid or Tilemap GameObject here!")]
+    public Grid levelGrid;
+
+    [Tooltip("0 = Straight out to the sides. -1 = Diagonally downward.")]
+    public int verticalGridOffset = 0;
 
     private Rigidbody2D rb;
     private Animator anim;
@@ -25,6 +29,7 @@ public class Dana : MonoBehaviour
     private float horizontalInput;
     private bool isFacingRight = true;
     private bool jumpRequested = false;
+    private int facingDirectionInt = 1;
 
     void Start()
     {
@@ -33,18 +38,26 @@ public class Dana : MonoBehaviour
 
         rb.interpolation = RigidbodyInterpolation2D.Interpolate;
         rb.collisionDetectionMode = CollisionDetectionMode2D.Continuous;
+
+        if (levelGrid == null)
+        {
+            levelGrid = FindFirstObjectByType<Grid>();
+        }
     }
 
     void Update()
     {
         horizontalInput = Input.GetAxisRaw("Horizontal");
 
+        // Lock mechanical direction tracking from keys
+        if (horizontalInput > 0f) facingDirectionInt = 1;
+        else if (horizontalInput < 0f) facingDirectionInt = -1;
+
         if (anim != null)
         {
             anim.SetFloat("Speed", Mathf.Abs(horizontalInput));
         }
 
-        // Capture jump button press cleanly
         if (Input.GetButtonDown("Jump") && IsGrounded())
         {
             jumpRequested = true;
@@ -60,10 +73,8 @@ public class Dana : MonoBehaviour
 
     void FixedUpdate()
     {
-        // Crisp, instant retro horizontal movement
         rb.velocity = new Vector2(horizontalInput * moveSpeed, rb.velocity.y);
 
-        // Execute jump safely inside the physics loop
         if (jumpRequested)
         {
             rb.velocity = new Vector2(rb.velocity.x, jumpForce);
@@ -74,47 +85,63 @@ public class Dana : MonoBehaviour
     private bool IsGrounded()
     {
         if (groundCheck == null) return false;
-
-        // Creates an invisible sensory block at her feet that ONLY interacts with the floor layer
+        // Scans an overlapping boundary box at her feet looking for Ground or MagicBlock layers
         Collider2D hit = Physics2D.OverlapBox(groundCheck.position, checkSize, 0f, groundLayer);
         return hit != null;
     }
 
+    private Vector3 GetGridTargetPosition()
+    {
+        if (levelGrid != null)
+        {
+            Vector3Int currentCell = levelGrid.WorldToCell(transform.position);
+            Vector3Int targetCell = new Vector3Int(
+                currentCell.x + facingDirectionInt,
+                currentCell.y + verticalGridOffset,
+                0
+            );
+            return levelGrid.GetCellCenterWorld(targetCell);
+        }
+        else
+        {
+            int targetX = Mathf.RoundToInt(transform.position.x) + facingDirectionInt;
+            int targetY = Mathf.RoundToInt(transform.position.y) + verticalGridOffset;
+            return new Vector3(targetX, targetY, 0f);
+        }
+    }
+
     void CastWandMagic()
     {
-        Transform activeTarget = isFacingRight ? wandTargetRight : wandTargetLeft;
-        if (activeTarget == null) return;
+        Vector3 targetPosition = GetGridTargetPosition();
 
-        Collider2D existingBlock = Physics2D.OverlapCircle(activeTarget.position, checkBlockRadius, groundLayer);
+        RaycastHit2D hitMagic = Physics2D.Raycast(targetPosition, Vector2.zero, 0f, magicBlockLayer);
+        RaycastHit2D hitSolid = Physics2D.Raycast(targetPosition, Vector2.zero, 0f, groundLayer);
 
-        if (existingBlock != null)
+        if (hitMagic.collider != null)
         {
-            MagicBlock magicBlockComponent = existingBlock.GetComponent<MagicBlock>();
-
+            MagicBlock magicBlockComponent = hitMagic.collider.GetComponent<MagicBlock>();
             if (magicBlockComponent != null)
             {
                 magicBlockComponent.TriggerBreak();
             }
             else
             {
-                Destroy(existingBlock.gameObject);
+                Destroy(hitMagic.collider.gameObject);
             }
-
-            // Commented out to stop parameters error:
-            // if (anim != null) anim.SetTrigger("UseWand");
         }
-        else
+        else if (hitSolid.collider == null)
         {
-            Instantiate(blockPrefab, activeTarget.position, Quaternion.identity);
-
-            // Commented out to stop parameters error:
-            // if (anim != null) anim.SetTrigger("UseWand");
+            if (blockPrefab)
+            {
+                Instantiate(blockPrefab, targetPosition, Quaternion.identity);
+            }
         }
-    } // <-- THIS WAS MISSING! This closes the CastWandMagic function properly.
+    }
 
     void FlipSprite()
     {
-        if (isFacingRight && horizontalInput > 0f || !isFacingRight && horizontalInput < 0f)
+        // FIXED VISUAL FLIP: Swapped comparison logic to match your native sprite orientation
+        if ((isFacingRight && horizontalInput < 0f) || (!isFacingRight && horizontalInput > 0f))
         {
             isFacingRight = !isFacingRight;
             Vector3 localScale = transform.localScale;
@@ -123,7 +150,6 @@ public class Dana : MonoBehaviour
         }
     }
 
-    // Draws wireframe helpers in your Scene View editor so you can easily verify positions!
     private void OnDrawGizmosSelected()
     {
         if (groundCheck != null)
@@ -132,16 +158,14 @@ public class Dana : MonoBehaviour
             Gizmos.DrawWireCube(groundCheck.position, checkSize);
         }
 
-        if (wandTargetRight != null)
+        Gizmos.color = Color.green;
+        if (levelGrid != null)
         {
-            Gizmos.color = Color.green;
-            Gizmos.DrawWireSphere(wandTargetRight.position, checkBlockRadius);
+            Gizmos.DrawWireCube(GetGridTargetPosition(), levelGrid.cellSize);
         }
-
-        if (wandTargetLeft != null)
+        else
         {
-            Gizmos.color = Color.red;
-            Gizmos.DrawWireSphere(wandTargetLeft.position, checkBlockRadius);
+            Gizmos.DrawWireCube(GetGridTargetPosition(), Vector3.one);
         }
     }
 }

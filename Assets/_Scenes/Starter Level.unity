@@ -199,68 +199,6 @@ Transform:
   - {fileID: 1522917587}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1058385997
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1058385998}
-  m_Layer: 9
-  m_Name: WandTarget_Left
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1058385998
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1058385997}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.0177, y: -0.0015, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 2077456596}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1435371460
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1435371461}
-  m_Layer: 9
-  m_Name: WandTarget_Right
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1435371461
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1435371460}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.0197, y: -0.0012, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 2077456596}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1501733334
 GameObject:
   m_ObjectHideFlags: 0
@@ -3193,7 +3131,7 @@ SpriteRenderer:
   m_SortingOrder: 1
   m_Sprite: {fileID: -176303312, guid: 2f2cc0859df006d4f85dcf050941323a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
+  m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 0.14, y: 0.16}
@@ -3211,13 +3149,11 @@ Transform:
   m_GameObject: {fileID: 2077456593}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.3808, y: -2.46, z: 0}
+  m_LocalPosition: {x: -0.31, y: -2.46, z: 0}
   m_LocalScale: {x: 53.714844, y: 58.487602, z: 6}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 546004701}
-  - {fileID: 1435371461}
-  - {fileID: 1058385998}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &2077456597
@@ -3265,11 +3201,13 @@ MonoBehaviour:
   checkSize: {x: 0.5, y: 0.1}
   groundLayer:
     serializedVersion: 2
-    m_Bits: 256
+    m_Bits: 320
   blockPrefab: {fileID: 2299095641428153428, guid: 1f6ba424d7b0066428fbbf9c71f46234, type: 3}
-  wandTargetRight: {fileID: 1435371461}
-  wandTargetLeft: {fileID: 1058385998}
-  checkBlockRadius: 0.4
+  magicBlockLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  levelGrid: {fileID: 930733674}
+  verticalGridOffset: 0
 --- !u!70 &2077456600
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -3302,8 +3240,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.0019222823, y: 0}
-  m_Size: {x: 0.010155409, y: 0.016}
+  m_Offset: {x: 0.0007008956, y: 0}
+  m_Size: {x: 0.010377073, y: 0.016}
   m_Direction: 0
 --- !u!1 &2113406483
 GameObject:

@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6603560334424161271}
   - component: {fileID: 2167110075832017854}
   - component: {fileID: 6950749782934764953}
+  - component: {fileID: 1554127189965025184}
   m_Layer: 6
   m_Name: MagicBlock
   m_TagString: Untagged
@@ -74,7 +75,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 5
   m_Sprite: {fileID: -1582563585, guid: 91c37f7c6e0e14b40827bf19b5465c92, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -143,3 +144,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbb8a95976f5cc642bae864f2cbbb1f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  destructionDelay: 0.2
+--- !u!95 &1554127189965025184
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2299095641428153428}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 4f309579f126f5a449a99366f55425fa, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
