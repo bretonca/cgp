@@ -73,10 +73,8 @@ public class Dana : MonoBehaviour
             jumpRequested = true;
         }
 
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKeyDown(KeyCode.Z))
         {
-            Debug.Log("WAND TRIGGER");
-
             if (anim != null)
             {
                 anim.SetTrigger("UseWand");
