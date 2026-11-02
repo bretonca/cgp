@@ -73,18 +73,48 @@ public class Dana : MonoBehaviour
             jumpRequested = true;
         }
 
-        if (Input.GetButtonDown("Fire1") || Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKeyDown(KeyCode.E))
         {
+            Debug.Log("WAND TRIGGER");
+
+            if (anim != null)
+            {
+                anim.SetTrigger("UseWand");
+            }
+
             CastWandMagic();
         }
+
+        bool isCrouching =
+    Input.GetKey(KeyCode.DownArrow) ||
+    Input.GetKey(KeyCode.S);
+
+        if (anim != null)
+        {
+            anim.SetBool("IsCrouching", isCrouching);
+        }
+
 
         FlipSprite();
     }
 
     void FixedUpdate()
     {
-        rb.velocity = new Vector2(horizontalInput * moveSpeed, rb.velocity.y);
+        bool isCrouching =
+            Input.GetKey(KeyCode.DownArrow) ||
+            Input.GetKey(KeyCode.S);
 
+        // Stop horizontal movement while crouching
+        if (isCrouching)
+        {
+            rb.velocity = new Vector2(0f, rb.velocity.y);
+        }
+        else
+        {
+            rb.velocity = new Vector2(horizontalInput * moveSpeed, rb.velocity.y);
+        }
+
+        // Jump
         if (jumpRequested)
         {
             rb.velocity = new Vector2(rb.velocity.x, jumpForce);
@@ -149,6 +179,8 @@ public class Dana : MonoBehaviour
             }
         }
     }
+
+
 
     void FlipSprite()
     {
